@@ -17,6 +17,12 @@ const RootLayout = () => {
             <Stack.Screen name='index' options={{
                  navigationBarHidden:true,
             }} />
+             {/* <Stack.Screen name='(excrises)/[excrise]' options={{
+                headerShown:true,
+                presentation:'modal'
+
+
+            }} /> */}
         </Stack>
     );
 };

@@ -6,21 +6,12 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import BODYPARTS from '../constants/BodyParts';
 
-const IMAGES = [
-    require('../assets/images/image2.jpg'),
-    require('../assets/images/image1.jpg'),
-    require('../assets/images/image3.jpg'),
-    require('../assets/images/image4.jpg'),
-    require('../assets/images/image2.jpg'),
-    require('../assets/images/image2.jpg'),
-    require('../assets/images/image1.jpg'),
-    require('../assets/images/image3.jpg'),
-    require('../assets/images/image4.jpg'),
-    require('../assets/images/image2.jpg'),
-];
+
 const BodyParts = () => {
     const router = useRouter();
+
     return (
         <View className='flex-1 '>
             <Text
@@ -31,7 +22,7 @@ const BodyParts = () => {
             </Text>
             <FlatList
                 indicatorStyle='black'
-                data={IMAGES}
+                data={BODYPARTS}
                 contentContainerStyle={{
                     padding: 10,
                 }}
@@ -43,7 +34,10 @@ const BodyParts = () => {
                 renderItem={({ item }) => (
                     <TouchableOpacity
                         onPress={() => {
-                            router.push('/sholder');
+                            router.push({
+                                pathname: item.bodyPartName,
+                                params: { id: 'azher ali' },
+                            });
                         }}
                     >
                         <View
@@ -60,7 +54,7 @@ const BodyParts = () => {
                         >
                             <Image
                                 resizeMode='stretch'
-                                source={item}
+                                source={item.imageUrl}
                                 style={{
                                     width: wp(45),
                                     height: hp(25),
@@ -81,7 +75,7 @@ const BodyParts = () => {
                                 style={{ fontSize: hp(2.3) }}
                                 className=' text-[#FEBA4F] font-bold tracking-wide'
                             >
-                                Shoulder
+                                {item.bodyPartName}
                             </Text>
                         </View>
                     </TouchableOpacity>
