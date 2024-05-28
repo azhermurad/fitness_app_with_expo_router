@@ -11,8 +11,11 @@ import {
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import BodyParts from '@/components/BodyParts';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useLocalSearchParams } from 'expo-router';
 
 const Home = () => {
+    const a =useLocalSearchParams()
+    console.log(a)
     return (
         <SafeAreaView
             // edges={['top']}

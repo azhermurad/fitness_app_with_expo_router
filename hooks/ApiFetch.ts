@@ -5,11 +5,21 @@ type Iprops = {
     url: string;
     method?: string;
 };
+type IExcrise = {
+    bodyPart: string;
+    equipment: string;
+    gifUrl: string;
+    id: string;
+    name: string;
+    target: string;
+    secondaryMuscles: string[];
+    instructions: string[];
+};
 
 const BASEURL: string = 'https://exercisedb.p.rapidapi.com/';
 
 const useFetchApi = ({ url, method = 'GET' }: Iprops) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<IExcrise[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<null | string>(null);
 
